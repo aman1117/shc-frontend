@@ -24,6 +24,8 @@ export default async function DashboardPage() {
           <p>Files</p>
         </div>
       </div>
+      {/* what does below stringified user object look like? */}
+      {/*why we used pre tag?*/}
       <pre>{JSON.stringify(user, null, 2)}</pre>
       <h1>dashboard page</h1>
     </main>

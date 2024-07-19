@@ -66,24 +66,29 @@ export default function LoginForm() {
       );
     }
   };
+
   return (
-    <main className="w-screen h-screen">
+    <main className="w-screen h-screen flex items-center justify-center bg-gray-100">
       <Form {...loginForm}>
         <form
           onSubmit={loginForm.handleSubmit(onLoginFormSubmit)}
-          className="space-y-8"
+          className="space-y-8 bg-white p-8 rounded-lg shadow-md w-96"
         >
           <FormField
             control={loginForm.control}
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Name</FormLabel>
+                <FormLabel className="text-base font-semibold">Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Ajay Sharma" {...field} />
+                  <Input
+                    placeholder="Ajay Sharma"
+                    {...field}
+                    className="border-green-600 focus:ring-green-600 focus:border-green-600"
+                  />
                 </FormControl>
-                <FormDescription>
-                  Please enter your name (3-255 characters).
+                <FormDescription className="text-sm text-gray-500">
+                  Please enter your name
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -95,17 +100,30 @@ export default function LoginForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="text-base font-semibold">Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="example@ajaysharma.dev" {...field} />
+                  <Input
+                    placeholder="example@ajaysharma.dev"
+                    {...field}
+                    className="border-green-600 focus:ring-green-600 focus:border-green-600"
+                  />
                 </FormControl>
-                <FormDescription>
-                  We will send you an OTP to this email.
-                </FormDescription>
+                <FormDescription className="text-sm text-gray-500"></FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
+
+          {otpStatus !== "sent" && (
+            <Button
+              disabled={otpStatus === "sending"}
+              onClick={onClickSendOtpButton}
+              className="bg-green-600 hover:bg-green-700 text-white font-semibold  px-4 rounded"
+            >
+              Send OTP
+            </Button>
+          )}
+
           {otpStatus === "sent" && (
             <>
               <FormField
@@ -114,11 +132,15 @@ export default function LoginForm() {
                 disabled={loginForm.formState.isLoading}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Otp</FormLabel>
+                    <FormLabel className="text-base font-semibold">OTP</FormLabel>
                     <FormControl>
-                      <Input placeholder="Six digits number" {...field} />
+                      <Input
+                        placeholder="Six digits number"
+                        {...field}
+                        className="border-green-600 focus:ring-green-600 focus:border-green-600"
+                      />
                     </FormControl>
-                    <FormDescription>
+                    <FormDescription className="text-sm text-gray-500">
                       Check your email for the OTP.
                     </FormDescription>
                     <FormMessage />
@@ -126,21 +148,17 @@ export default function LoginForm() {
                 )}
               />
 
-              <Button disabled={loginForm.formState.isSubmitting} type="submit">
+              <Button
+                disabled={loginForm.formState.isSubmitting}
+                type="submit"
+                className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded"
+              >
                 Submit OTP
               </Button>
             </>
           )}
         </form>
       </Form>
-      {otpStatus !== "sent" && (
-        <Button
-          disabled={otpStatus === "sending"}
-          onClick={onClickSendOtpButton}
-        >
-          Send OTP
-        </Button>
-      )}
     </main>
   );
 }
