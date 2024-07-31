@@ -62,7 +62,7 @@ export default function LoginForm() {
             setOtpStatus("error");
             return "Something went wrong";
           },
-        },
+        }
       );
     }
   };
@@ -82,7 +82,7 @@ export default function LoginForm() {
                 <FormLabel className="text-base font-semibold">Name</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Ajay Sharma"
+                    placeholder="Aman Sharma"
                     {...field}
                     className="border-green-600 focus:ring-green-600 focus:border-green-600"
                   />
@@ -132,7 +132,9 @@ export default function LoginForm() {
                 disabled={loginForm.formState.isLoading}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-base font-semibold">OTP</FormLabel>
+                    <FormLabel className="text-base font-semibold">
+                      OTP
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="Six digits number"
