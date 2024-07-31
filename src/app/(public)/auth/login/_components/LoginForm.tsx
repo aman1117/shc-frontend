@@ -18,6 +18,7 @@ import { submitLoginForm } from "@/server-actions/submit-otp.action";
 import { useState } from "react";
 import { sendOtp } from "@/server-actions/send-otp.action";
 import { toast } from "sonner";
+import Logo from "@/components/ui/logo";
 
 const LoginFormSchema = z.object({
   name: z.string().min(3).max(255),
@@ -68,12 +69,15 @@ export default function LoginForm() {
   };
 
   return (
-    <main className="w-screen h-screen flex items-center justify-center bg-gray-100">
+    <main className="flex-col  w-screen h-screen flex items-center justify-center bg-gray-100">
       <Form {...loginForm}>
         <form
           onSubmit={loginForm.handleSubmit(onLoginFormSubmit)}
           className="space-y-8 bg-white p-8 rounded-lg shadow-md w-96"
         >
+          <div className="mx-auto flex items-center justify-center">
+            <Logo w={100} h={100} />
+          </div>
           <FormField
             control={loginForm.control}
             name="name"
@@ -103,7 +107,7 @@ export default function LoginForm() {
                 <FormLabel className="text-base font-semibold">Email</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="example@ajaysharma.dev"
+                    placeholder="example@gmail.com"
                     {...field}
                     className="border-green-600 focus:ring-green-600 focus:border-green-600"
                   />

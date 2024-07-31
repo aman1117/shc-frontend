@@ -4,9 +4,24 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 const inter = Inter({ subsets: ["latin"] });
 
+// Define the metadata object
 export const metadata: Metadata = {
-  title: "ShareCode online",
+  title: "ShareCode | online",
   description: "in development",
+  icons: {
+    icon: [
+      {
+        media: "(prefers-color-scheme: light)",
+        url: "/logo.png",
+        href: "/logo.png",
+      },
+      {
+        media: "(prefers-color-scheme: dark)",
+        url: "/logo.png",
+        href: "/logo.png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
