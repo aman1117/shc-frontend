@@ -76,7 +76,7 @@ export default function LoginForm() {
           className="space-y-8 bg-white p-8 rounded-lg shadow-md w-96"
         >
           <div className="mx-auto flex items-center justify-center">
-            <Logo w={100} h={100} />
+            <Logo w={80} where="login" />
           </div>
           <FormField
             control={loginForm.control}
