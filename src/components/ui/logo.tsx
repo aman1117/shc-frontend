@@ -3,23 +3,19 @@ import Image from "next/image";
 import { string } from "zod";
 
 interface LogoProps {
-  w: number;
   where?: "login" | "navbar";
 }
 
-const Logo = ({ w, where }: LogoProps) => {
+const Logo = ({ where }: LogoProps) => {
   if (where === "navbar") {
-    return (
-      <div className="flex  items-center justify-center gap-x-1">
-        <SquareDashedBottomCode size={w} className="text-green-600" />
-        <p className="font-bold  text-slate-900 ">SHARECODE</p>
-      </div>
-    );
+    return <Image src="/logo-hori.png" alt="logo" width={100} height={100} />;
   }
   return (
-    <div className="flex flex-col items-center justify-center">
-      <SquareDashedBottomCode size={w} className="text-green-600" />
-      <p className="font-extrabold text-lg text-slate-900 ">SHARECODE</p>
+    <div className="flex justify-center gap-y-4 ">
+      <Image src="/logo.png" alt="logo" width={100} height={100} />
+      <span className="text-4xl text-neutral-800 font-bold  ml-2 mt-16">
+        sharecode
+      </span>
     </div>
   );
 };

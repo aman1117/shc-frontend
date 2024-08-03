@@ -73,11 +73,12 @@ export default function LoginForm() {
       <Form {...loginForm}>
         <form
           onSubmit={loginForm.handleSubmit(onLoginFormSubmit)}
-          className="space-y-8 bg-white p-8 rounded-lg shadow-md w-96"
+          className="space-y-8 bg-white p-8 shadow-md w-96"
         >
-          <div className="mx-auto flex items-center justify-center">
-            <Logo w={80} where="login" />
+          <div className="-mb-10">
+            <Logo where="login" />
           </div>
+          <div className="mx-auto flex items-center justify-center"></div>
           <FormField
             control={loginForm.control}
             name="name"
@@ -122,7 +123,7 @@ export default function LoginForm() {
             <Button
               disabled={otpStatus === "sending"}
               onClick={onClickSendOtpButton}
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold  px-4 rounded"
+              className="bg-green-600 hover:bg-green-700 text-white font-semibold  px-4 "
             >
               Send OTP
             </Button>
@@ -157,7 +158,7 @@ export default function LoginForm() {
               <Button
                 disabled={loginForm.formState.isSubmitting}
                 type="submit"
-                className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded"
+                className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 "
               >
                 Submit OTP
               </Button>
