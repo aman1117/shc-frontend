@@ -55,7 +55,7 @@ export default function FileListItem({
                 <button
                   onClick={() => {
                     navigator.clipboard.writeText(
-                      `${location.origin}/files/${file.id}`
+                      `${location.origin}/share/${file.id}`
                     );
                     toast.success("Link copied to clipboard!");
                   }}
@@ -64,7 +64,7 @@ export default function FileListItem({
                 </button>
               </div>
               <div>
-                <Link href={`files/${file.id}`}>View/Download</Link>
+                <Link href={`share/${file.id}`}>View/Download</Link>
               </div>
               <div className="flex flex-col items-center space-x-2">
                 <Switch
