@@ -8,7 +8,14 @@ interface LogoProps {
 
 const Logo = ({ where }: LogoProps) => {
   if (where === "navbar") {
-    return <Image src="/logo-hori.png" alt="logo" width={100} height={100} />;
+    return (
+      <Image
+        src="/assets/images/logo-hori.png"
+        alt="logo"
+        width={100}
+        height={100}
+      />
+    );
   }
   return (
     <div className="flex justify-center gap-y-4 ">

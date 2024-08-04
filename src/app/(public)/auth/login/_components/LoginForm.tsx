@@ -89,7 +89,7 @@ export default function LoginForm() {
                   <Input
                     placeholder="Aman Sharma"
                     {...field}
-                    className="border-green-600 focus:ring-green-600 focus:border-green-600"
+                    className="border-[#00002C] focus:ring-[#00002C] focus:border-[#00002C]"
                   />
                 </FormControl>
                 <FormDescription className="text-sm text-gray-500">
@@ -110,7 +110,7 @@ export default function LoginForm() {
                   <Input
                     placeholder="example@gmail.com"
                     {...field}
-                    className="border-green-600 focus:ring-green-600 focus:border-green-600"
+                    className="border-[#00002C] focus:ring-[#00002C] focus:border-[#00002C]"
                   />
                 </FormControl>
                 <FormDescription className="text-sm text-gray-500"></FormDescription>
@@ -123,7 +123,7 @@ export default function LoginForm() {
             <Button
               disabled={otpStatus === "sending"}
               onClick={onClickSendOtpButton}
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold  px-4 "
+              className="bg-[#00002C] hover:bg-[#3636ff] text-white font-semibold  px-4 "
             >
               Send OTP
             </Button>
@@ -144,7 +144,7 @@ export default function LoginForm() {
                       <Input
                         placeholder="Six digits number"
                         {...field}
-                        className="border-green-600 focus:ring-green-600 focus:border-green-600"
+                        className="border-[#3636ff] focus:ring-[#3636ff] focus:border-[#3636ff]0"
                       />
                     </FormControl>
                     <FormDescription className="text-sm text-gray-500">
@@ -158,7 +158,7 @@ export default function LoginForm() {
               <Button
                 disabled={loginForm.formState.isSubmitting}
                 type="submit"
-                className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 "
+                className="bg-[#00002C] hover:bg-[#3636ff] text-white font-semibold py-2 px-4 "
               >
                 Submit OTP
               </Button>
