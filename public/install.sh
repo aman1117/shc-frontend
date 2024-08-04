@@ -1,4 +1,4 @@
-REPO_URL="https://github.com/aj-2000/shc-cli.git"
+REPO_URL="https://github.com/aman1117/shc-cli.git"
 REPO_DIR=$(mktemp -d)
 
 if ! command -v rustc &> /dev/null; then
