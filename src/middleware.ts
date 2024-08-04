@@ -75,7 +75,6 @@ async function handleRefreshToken(origin: string): Promise<NextResponse> {
 
 export async function middleware(request: NextRequest): Promise<NextResponse> {
   const { pathname, origin } = request.nextUrl;
-
   if (!hasValidCookies(request)) {
     return pathname !== LOGIN_PATH
       ? redirectToLogin(origin)
@@ -97,6 +96,6 @@ export const config = {
      * - /share/... (shared files)
      * - /install.sh (installation script)
      */
-    "/((?!install.sh|share|_next/static|_next/image|favicon.ico|files/.+).*)",
+    "/((?!install.sh|assets|share|_next/static|_next/image|favicon.ico|files/.+).*)",
   ],
 };

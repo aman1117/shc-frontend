@@ -12,7 +12,12 @@ const Logo = ({ where }: LogoProps) => {
   }
   return (
     <div className="flex justify-center gap-y-4 ">
-      <Image src="/logo.png" alt="logo" width={100} height={100} />
+      <Image
+        src="/assets/images/logo.png"
+        alt="logo"
+        width={100}
+        height={100}
+      />
       <span className="text-4xl text-neutral-800 font-bold  ml-2 mt-16">
         sharecode
       </span>
