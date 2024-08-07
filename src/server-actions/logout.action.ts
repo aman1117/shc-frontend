@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { permanentRedirect } from "next/navigation";
 
 export async function logout() {
-  console.log("logout");
+  // console.log("logout");
 
   const refreshToken = cookies().get("__shc_refresh_token")?.value;
 

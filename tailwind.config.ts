@@ -20,6 +20,9 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        'bsvg': "url('/assets/images/background.svg')",
+      },
       colors: {
         dblue: '#00002C',
         rblue: '#020267',

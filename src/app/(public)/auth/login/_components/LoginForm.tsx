@@ -69,7 +69,7 @@ export default function LoginForm() {
   };
 
   return (
-    <main className="flex-col  w-screen h-screen flex items-center justify-center bg-gray-100">
+    <main className="flex-col w-screen h-screen flex items-center bg-bsvg bg-cover bg-center justify-center bg-gray-100">
       <Form {...loginForm}>
         <form
           onSubmit={loginForm.handleSubmit(onLoginFormSubmit)}
@@ -89,7 +89,7 @@ export default function LoginForm() {
                   <Input
                     placeholder="Aman Sharma"
                     {...field}
-                    className="border-[#00002C] focus:ring-[#00002C] focus:border-[#00002C]"
+                    className="focus:outline-none focus:ring-0 focus:border-0"
                   />
                 </FormControl>
                 <FormDescription className="text-sm text-gray-500">
@@ -110,7 +110,7 @@ export default function LoginForm() {
                   <Input
                     placeholder="example@gmail.com"
                     {...field}
-                    className="border-[#00002C] focus:ring-[#00002C] focus:border-[#00002C]"
+                    className="focus:outline-none focus:ring-0 focus:border-0"
                   />
                 </FormControl>
                 <FormDescription className="text-sm text-gray-500"></FormDescription>
@@ -123,7 +123,7 @@ export default function LoginForm() {
             <Button
               disabled={otpStatus === "sending"}
               onClick={onClickSendOtpButton}
-              className="bg-[#00002C] hover:bg-[#020267] text-white font-semibold  px-4 "
+              className="bg-[#00002C] hover:bg-[#020267] text-white font-semibold px-4"
             >
               Send OTP
             </Button>
@@ -144,7 +144,7 @@ export default function LoginForm() {
                       <Input
                         placeholder="Six digits number"
                         {...field}
-                        className="border-[#3636ff] focus:ring-[#3636ff] focus:border-[#3636ff]0"
+                        className="focus:outline-none focus:ring-0 focus:border-0"
                       />
                     </FormControl>
                     <FormDescription className="text-sm text-gray-500">
@@ -158,7 +158,7 @@ export default function LoginForm() {
               <Button
                 disabled={loginForm.formState.isSubmitting}
                 type="submit"
-                className="bg-dblue hover:bg-rblue text-white font-semibold py-2 px-4 "
+                className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4"
               >
                 Submit OTP
               </Button>
