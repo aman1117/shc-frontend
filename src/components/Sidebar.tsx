@@ -1,18 +1,7 @@
 "use client";
 
 import React from "react";
-import {
-  BarChart,
-  Info,
-  PhoneCall,
-  Settings2,
-  Users2,
-  WalletCards,
-  CalendarClock,
-  Book,
-  File,
-  DollarSign,
-} from "lucide-react";
+import { BarChart, DollarSign, File } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -24,50 +13,22 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
 const MENUS = {
   main: [
     {
-      pathname: "/overview",
+      pathname: "/",
       name: "Overview",
-      icon: <BarChart className="mr-2 h-4 w-4" />,
+      icon: <BarChart className="mr-2 h-5 w-5  " />, // Increased icon size
     },
     {
       pathname: "/files",
       name: "My Files",
-      icon: <File className="mr-2 h-4 w-4" />,
+      icon: <File className="mr-2 h-5 w-5" />, // Increased icon size
     },
     {
       pathname: "/subscription",
       name: "Subscription",
-      icon: <DollarSign className="mr-2 h-4 w-4" />,
+      icon: <DollarSign className="mr-2 h-5 w-5" />, // Increased icon size
     },
   ],
-  other: [
-    // {
-    //   pathname: "/settings",
-    //   name: "Settings",
-    //   icon: <Settings2 className="mr-2 h-4 w-4" />,
-    // },
-    // {
-    //   pathname: "/payments",
-    //   name: "Payments",
-    //   icon: <WalletCards className="mr-2 h-4 w-4" />,
-    // },
-    // {
-    //   pathname: "/accounts",
-    //   name: "Accounts",
-    //   icon: <Users2 className="mr-2 h-4 w-4" />,
-    // },
-    // {
-    //   pathname: "/help",
-    //   name: "Help",
-    //   icon: <Info className="mr-2 h-4 w-4" />,
-    // },
-  ],
-  intergratins: [
-    // {
-    //   pathname: "/integrations/calendly",
-    //   name: "Calendly",
-    //   icon: <CalendarClock className="mr-2 h-4 w-4" />,
-    // },
-  ],
+  // other and integrations menus can be added here if needed
 };
 
 export default function Sidebar({ className }: SidebarProps) {
@@ -75,89 +36,41 @@ export default function Sidebar({ className }: SidebarProps) {
 
   const ghostVariant = "ghost";
   const secondaryVariant = "secondary";
-  const size = "sm";
+  const size = "lg"; // Increased button size
 
   return (
     <aside className={cn("pb-12", className, "relative")}>
       <div className="space-y-4 py-4">
-        <div className="px-3 py-2">
+        <div className="px-3 ">
           <div className="space-y-1">
-            {MENUS.main.map((menu) => (
-              <Link
-                key={menu.pathname}
-                href={menu.pathname}
-                className={cn(
-                  buttonVariants({
-                    variant:
-                      pathname === menu.pathname
-                        ? secondaryVariant
-                        : ghostVariant,
-                    size,
-                    className,
-                  }),
-                  "w-full justify-start"
+            {MENUS.main.map((menu, index) => (
+              <React.Fragment key={menu.pathname}>
+                <Link
+                  href={menu.pathname}
+                  className={cn(
+                    buttonVariants({
+                      variant:
+                        pathname === menu.pathname
+                          ? secondaryVariant
+                          : ghostVariant,
+                      size,
+                      className,
+                    }),
+                    "w-full justify-start py-3" // Added padding to make components bigger
+                  )}
+                >
+                  <div className="flex justify-center items-center">
+                    {menu.icon}
+                    <span className="font-semibold">{menu.name}</span>
+                  </div>
+                </Link>
+                {index < MENUS.main.length - 1 && (
+                  <hr className="border-gray-200 my-2" /> // Horizontal line
                 )}
-              >
-                {menu.icon}
-                {menu.name}
-              </Link>
+              </React.Fragment>
             ))}
           </div>
         </div>
-        {/* <div className="px-3 py-2">
-          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-            Integrations
-          </h2>
-          <div className="space-y-1">
-            {MENUS.intergratins.map((menu) => (
-              <Link
-                key={menu.pathname}
-                href={menu.pathname}
-                className={cn(
-                  buttonVariants({
-                    variant:
-                      pathname === menu.pathname
-                        ? secondaryVariant
-                        : ghostVariant,
-                    size,
-                    className,
-                  }),
-                  "w-full justify-start"
-                )}
-              >
-                {menu.icon}
-                {menu.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-        <div className="px-3 py-2">
-          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-            Others
-          </h2>
-          <div className="space-y-1">
-            {MENUS.other.map((menu) => (
-              <Link
-                key={menu.pathname}
-                href={menu.pathname}
-                className={cn(
-                  buttonVariants({
-                    variant:
-                      pathname === menu.pathname
-                        ? secondaryVariant
-                        : ghostVariant,
-                    size,
-                    className,
-                  }),
-                  "w-full justify-start"
-                )}
-              >
-                {menu.icon}
-                {menu.name}
-              </Link>
-            ))}
-          </div>
-        </div> */}
       </div>
     </aside>
   );

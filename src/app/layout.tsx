@@ -33,7 +33,7 @@ export default function RootLayout({
     // {/* what does lang= "en" do? */}
     <html lang="en">
       {/* why does we use curly braces in the below classname? */}
-      <body className={inter.className}>
+      <body className={`inter.className `}>
         {children}
         <Toaster />
       </body>

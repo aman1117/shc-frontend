@@ -34,9 +34,9 @@ export default function FileListItem({
   }
   return (
     <div>
-      <Card>
-        <div className="flex gap-2 items-center bg-muted p-2 rounded-lg">
-          <div className="w-12 bg-teal-500 p-2 rounded-lg">
+      <Card className="rounded-none">
+        <div className="flex gap-2 items-center bg-mygrey p-2 rounded-lg">
+          <div className="w-12 bg-dblue  p-2 rounded-lg">
             <FileIcon
               extension={file.extension}
               {...defaultStyles[file.extension]}
@@ -60,11 +60,17 @@ export default function FileListItem({
                     toast.success("Link copied to clipboard!");
                   }}
                 >
-                  Copy Link
+                  <span className="font-semibold hover:underline text-sm underline-offset-4">
+                    Copy Link
+                  </span>
                 </button>
               </div>
               <div>
-                <Link href={`share/${file.id}`}>View/Download</Link>
+                <Link href={`share/${file.id}`}>
+                  <span className="font-semibold hover:underline text-sm underline-offset-4">
+                    View
+                  </span>
+                </Link>
               </div>
               <div className="flex flex-col items-center space-x-2">
                 <Switch
@@ -76,7 +82,11 @@ export default function FileListItem({
                   id={file.id}
                 />
                 <Label htmlFor={file.id}>
-                  {isPublic ? "Public" : "Private"}
+                  <div className="mt-2">
+                    <span className="font-semibold  mr-2">
+                      {isPublic ? "Public" : "Private"}
+                    </span>
+                  </div>
                 </Label>
               </div>
             </div>

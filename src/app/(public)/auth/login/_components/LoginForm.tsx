@@ -123,7 +123,7 @@ export default function LoginForm() {
             <Button
               disabled={otpStatus === "sending"}
               onClick={onClickSendOtpButton}
-              className="bg-[#00002C] hover:bg-[#3636ff] text-white font-semibold  px-4 "
+              className="bg-[#00002C] hover:bg-[#020267] text-white font-semibold  px-4 "
             >
               Send OTP
             </Button>
@@ -158,7 +158,7 @@ export default function LoginForm() {
               <Button
                 disabled={loginForm.formState.isSubmitting}
                 type="submit"
-                className="bg-[#00002C] hover:bg-[#3636ff] text-white font-semibold py-2 px-4 "
+                className="bg-dblue hover:bg-rblue text-white font-semibold py-2 px-4 "
               >
                 Submit OTP
               </Button>
