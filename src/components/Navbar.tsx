@@ -17,7 +17,8 @@ export default function Navbar() {
       if (res.ok) {
         window.location.href = "/auth/login";
       } else {
-        console.error("Logout failed");
+        const errorData = await res.json();
+        console.error("Logout failed:", errorData.error);
       }
     } catch (error) {
       console.error("An unexpected error occurred:", error);
