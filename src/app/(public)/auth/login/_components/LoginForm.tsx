@@ -89,6 +89,7 @@ export default function LoginForm() {
                   <Input
                     placeholder="Aman Sharma"
                     {...field}
+                    disabled={otpStatus === "sending" || otpStatus === "sent"}
                     className="focus:outline-none focus:ring-0 focus:border-0"
                   />
                 </FormControl>
@@ -110,6 +111,7 @@ export default function LoginForm() {
                   <Input
                     placeholder="example@gmail.com"
                     {...field}
+                    disabled={otpStatus === "sending" || otpStatus === "sent"}
                     className="focus:outline-none focus:ring-0 focus:border-0"
                   />
                 </FormControl>
@@ -158,7 +160,7 @@ export default function LoginForm() {
               <Button
                 disabled={loginForm.formState.isSubmitting}
                 type="submit"
-                className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4"
+                className="bg-dblue  hover:bg-rblue text-white font-semibold py-2 px-4"
               >
                 Submit OTP
               </Button>
