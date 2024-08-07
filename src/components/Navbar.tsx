@@ -1,5 +1,6 @@
 "use client";
 
+import { logout } from "@/server-actions/logout.action";
 import { Button } from "./ui/button";
 import Logo from "./ui/logo";
 import Link from "next/link";
@@ -7,23 +8,6 @@ import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
-
-  const handleLogout = async () => {
-    try {
-      const res = await fetch("/api/logout", {
-        method: "POST",
-      });
-
-      if (res.ok) {
-        window.location.href = "/auth/login";
-      } else {
-        const errorData = await res.json();
-        console.error("Logout failed:", errorData.error);
-      }
-    } catch (error) {
-      console.error("An unexpected error occurred:", error);
-    }
-  };
 
   return (
     <nav className="border-b max-w-screen">
@@ -37,7 +21,7 @@ export default function Navbar() {
           </span>
         </span>
         <div className="flex items-center space-x-3">
-          <Button onClick={handleLogout}>Logout</Button>
+          <Button onClick={logout}>Logout</Button>
         </div>
       </div>
     </nav>
