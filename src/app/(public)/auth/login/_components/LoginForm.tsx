@@ -93,9 +93,7 @@ export default function LoginForm() {
                     className="focus:outline-none focus:ring-0 focus:border-0"
                   />
                 </FormControl>
-                <FormDescription className="text-sm text-gray-500">
-                  Please enter your name
-                </FormDescription>
+                <FormDescription className="text-sm text-gray-500"></FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -136,7 +134,6 @@ export default function LoginForm() {
               <FormField
                 control={loginForm.control}
                 name="otp"
-                disabled={loginForm.formState.isLoading}
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-semibold">
@@ -146,6 +143,7 @@ export default function LoginForm() {
                       <Input
                         placeholder="Six digits number"
                         {...field}
+                        disabled={loginForm.formState.isSubmitting}
                         className="focus:outline-none focus:ring-0 focus:border-0"
                       />
                     </FormControl>
@@ -160,7 +158,7 @@ export default function LoginForm() {
               <Button
                 disabled={loginForm.formState.isSubmitting}
                 type="submit"
-                className="bg-dblue  hover:bg-rblue text-white font-semibold py-2 px-4"
+                className="bg-dblue hover:bg-rblue text-white font-semibold py-2 px-4"
               >
                 Submit OTP
               </Button>
