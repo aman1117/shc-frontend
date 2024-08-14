@@ -12,6 +12,9 @@ import { formatBytes } from "@/lib/utils";
 import { ShcFile } from "@/types/file.type";
 import { toast } from "sonner";
 import { toggleFileVisibility } from "@/server-actions/toggle-file-visibility.action";
+import { Toggle } from "./ui/toggle";
+import { Badge } from "./ui/badge";
+import { Settings2 } from "lucide-react";
 
 export default function FileListItem({
   file,
@@ -34,8 +37,8 @@ export default function FileListItem({
   }
   return (
     <div>
-      <Card className="rounded-none">
-        <div className="flex gap-2 items-center bg-mygrey p-2 rounded-lg">
+      <div className="bg-mygrey rounded-lg">
+        <div className="flex gap-2 items-center  p-2 rounded-lg ml-1">
           <div className="w-12 bg-dblue  p-2 rounded-lg">
             <FileIcon
               extension={file.extension}
@@ -43,8 +46,8 @@ export default function FileListItem({
             />
           </div>
           <div className="flex items-center justify-between w-full">
-            <div>
-              <p>{file.name}</p>
+            <div className="ml-1">
+              <p className="font-medium text-sm ">{file.name}</p>
               <div className="text-xs text-muted-foreground">
                 <p>{dayjs(file.updated_at).fromNow()}</p>
                 <p>{formatBytes(file.size)}</p>
@@ -60,39 +63,53 @@ export default function FileListItem({
                     toast.success("Link copied to clipboard!");
                   }}
                 >
-                  <span className="font-semibold hover:underline text-sm underline-offset-4">
-                    Copy Link
-                  </span>
+                  <Badge variant="outline" className="cursor-pointer hover:bg-gray-200 text-gray-800 p-1">
+                    <span className="px-1">Copy link</span>
+                  </Badge>
                 </button>
               </div>
               <div>
                 <Link href={`share/${file.id}`}>
-                  <span className="font-semibold hover:underline text-sm underline-offset-4">
-                    View
-                  </span>
+                  <Badge variant="outline" className="cursor-pointer hover:bg-gray-200 p-1">
+                    <span className="px-1">View</span>
+                  </Badge>
+
                 </Link>
               </div>
               <div className="flex flex-col items-center space-x-2">
-                <Switch
+                {/* <Switch
                   disabled={isLoading}
                   checked={isPublic}
                   onCheckedChange={() => {
                     toggleVisibility();
                   }}
                   id={file.id}
-                />
+                /> */}
                 <Label htmlFor={file.id}>
-                  <div className="mt-2">
-                    <span className="font-semibold  mr-2">
-                      {isPublic ? "Public" : "Private"}
-                    </span>
-                  </div>
+                  {isPublic ? (
+                    <Badge variant="public" className="cursor-pointer  mr-2 p-1" onClick={() => toggleVisibility()}>
+                      <span className="px-1">
+                        {isLoading ? "Loading... " : "Public "}
+                      </span>
+                      <div>
+                        {!isLoading && <Settings2 className="ml-1" size={16} />}
+                      </div>
+                    </Badge>
+
+                  ) : (
+                    <Badge variant="private" className="cursor-pointer mr-2 p-1" onClick={() => toggleVisibility()}>
+                      <span className="px-1">
+                        {isLoading ? "Loading... " : "Private "}
+                      </span>
+                      {!isLoading && <Settings2 size={16} />}
+                    </Badge>
+                  )}
                 </Label>
               </div>
             </div>
           </div>
         </div>
-      </Card>
-    </div>
+      </div>
+    </div >
   );
 }

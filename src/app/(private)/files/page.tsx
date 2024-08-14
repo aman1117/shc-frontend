@@ -5,7 +5,7 @@ export default async function ShcFiles() {
   const files = await getFiles();
 
   return (
-    <div className="container flex flex-col gap-2 pt-4">
+    <div className="container flex flex-col gap-2.5 pt-4">
       {files.results.map((file) => (
         <FileListItem key={file.id} file={file} />
       ))}
