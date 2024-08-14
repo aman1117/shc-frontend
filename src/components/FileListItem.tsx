@@ -15,6 +15,7 @@ import { toggleFileVisibility } from "@/server-actions/toggle-file-visibility.ac
 import { Toggle } from "./ui/toggle";
 import { Badge } from "./ui/badge";
 import { Copy, Eye, Settings2 } from "lucide-react";
+import { Button } from "./ui/button";
 
 export default function FileListItem({
   file,
@@ -37,7 +38,7 @@ export default function FileListItem({
   }
   return (
     <div>
-      <div className="bg-mygrey rounded-lg">
+      <div className="bg-mygrey rounded-lg hover:bg-white border border-opacity-0 hover:border">
         <div className="flex gap-2 items-center  p-2 rounded-lg ml-1">
           <div className="w-12 bg-dblue  p-2 rounded-lg">
             <FileIcon
@@ -63,18 +64,18 @@ export default function FileListItem({
                     toast.success("Link copied to clipboard!");
                   }}
                 >
-                  <Badge variant="outline" className="cursor-pointer hover:bg-gray-200 text-gray-800 p-1">
+                  <Button size="sm" variant="outline" className="cursor-pointer hover:bg-gray-200 text-gray-800 ">
                     <span className="px-1">Copy link</span>
                     <Copy className="ml-1" size={16} />
-                  </Badge>
+                  </Button>
                 </button>
               </div>
               <div>
                 <Link href={`share/${file.id}`}>
-                  <Badge variant="outline" className="cursor-pointer hover:bg-blue-600  p-1 bg-blue-500 ">
+                  <Button variant="outline" size="sm" className="cursor-pointer hover:bg-blue-600   bg-blue-500 ">
                     <span className="px-1 text-white">View</span>
                     <Eye className="ml-1 text-white" size={16} />
-                  </Badge>
+                  </Button>
 
                 </Link>
               </div>
@@ -89,22 +90,25 @@ export default function FileListItem({
                 /> */}
                 <Label htmlFor={file.id}>
                   {isPublic ? (
-                    <Badge variant="public" className="cursor-pointer  mr-2 p-1  hover:bg-red-600" onClick={() => toggleVisibility()}>
-                      <span className="px-1">
-                        {isLoading ? "Loading... " : "Public "}
+                    <Button variant="public" disabled={isLoading} size="sm" className="cursor-pointer  mr-2   hover:bg-red-600" onClick={() => toggleVisibility()}>
+                      <span className="">
+                        Public
                       </span>
                       <div>
-                        {!isLoading && <Settings2 className="ml-1" size={16} />}
+                        <Settings2 className="ml-1" size={16} />
                       </div>
-                    </Badge>
+                    </Button>
 
                   ) : (
-                    <Badge variant="private" className="cursor-pointer mr-2 p-1 hover:bg-green-600" onClick={() => toggleVisibility()}>
-                      <span className="px-1">
-                        {isLoading ? "Loading... " : "Private "}
+
+                    <Button variant="private" disabled={isLoading} size="sm" className="cursor-pointer  mr-2   hover:bg-green-600" onClick={() => toggleVisibility()}>
+                      <span className="">
+                        Private
                       </span>
-                      {!isLoading && <Settings2 size={16} />}
-                    </Badge>
+                      <div>
+                        <Settings2 className="ml-1" size={16} />
+                      </div>
+                    </Button>
                   )}
                 </Label>
               </div>
