@@ -14,7 +14,7 @@ import { toast } from "sonner";
 import { toggleFileVisibility } from "@/server-actions/toggle-file-visibility.action";
 import { Toggle } from "./ui/toggle";
 import { Badge } from "./ui/badge";
-import { Settings2 } from "lucide-react";
+import { Copy, Eye, Settings2 } from "lucide-react";
 
 export default function FileListItem({
   file,
@@ -65,13 +65,15 @@ export default function FileListItem({
                 >
                   <Badge variant="outline" className="cursor-pointer hover:bg-gray-200 text-gray-800 p-1">
                     <span className="px-1">Copy link</span>
+                    <Copy className="ml-1" size={16} />
                   </Badge>
                 </button>
               </div>
               <div>
                 <Link href={`share/${file.id}`}>
-                  <Badge variant="outline" className="cursor-pointer hover:bg-gray-200 p-1">
-                    <span className="px-1">View</span>
+                  <Badge variant="outline" className="cursor-pointer hover:bg-blue-600  p-1 bg-blue-500 ">
+                    <span className="px-1 text-white">View</span>
+                    <Eye className="ml-1 text-white" size={16} />
                   </Badge>
 
                 </Link>
@@ -87,7 +89,7 @@ export default function FileListItem({
                 /> */}
                 <Label htmlFor={file.id}>
                   {isPublic ? (
-                    <Badge variant="public" className="cursor-pointer  mr-2 p-1" onClick={() => toggleVisibility()}>
+                    <Badge variant="public" className="cursor-pointer  mr-2 p-1  hover:bg-red-600" onClick={() => toggleVisibility()}>
                       <span className="px-1">
                         {isLoading ? "Loading... " : "Public "}
                       </span>
@@ -97,7 +99,7 @@ export default function FileListItem({
                     </Badge>
 
                   ) : (
-                    <Badge variant="private" className="cursor-pointer mr-2 p-1" onClick={() => toggleVisibility()}>
+                    <Badge variant="private" className="cursor-pointer mr-2 p-1 hover:bg-green-600" onClick={() => toggleVisibility()}>
                       <span className="px-1">
                         {isLoading ? "Loading... " : "Private "}
                       </span>
