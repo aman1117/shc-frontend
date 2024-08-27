@@ -1,0 +1,17 @@
+{
+  
+  "editor.fontFamily": "Liga SFMono Nerd Font,\"Monaco Nerd Font\",Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 15,
+  "editor.fontLigatures": true,
+  "editor.fontVariations": true,
+  "editor.fontWeight": "normal",
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.fontWeightBold": "bold",
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "editor.wordWrap": "on",
+  "editor.lineHeight": 1.5,
+  "editor.tabSize": 4,
+   "workbench.colorTheme": "Best Themes - Gruvbox Concoctis Dark"
+}
