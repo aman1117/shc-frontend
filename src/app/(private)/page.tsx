@@ -12,7 +12,7 @@ export default async function DashboardPage() {
     <div className="container mx-auto p-6 max-w-7xl b min-h-screen">
       <header className="mb-8 bg-indigo-100 p-6 rounded-lg shadow-sm border-b border-indigo-200">
         <h1 className="text-3xl font-bold text-indigo-700 mb-2">Welcome, {user.name}</h1>
-        <p className="text-indigo-600">Here's an overview of your account</p>
+        <p className="text-indigo-600">Here&rsquo;s an overview of your account</p>
       </header>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
@@ -27,7 +27,7 @@ export default async function DashboardPage() {
             <div className="text-3xl font-bold text-blue-700 mb-2">
               {user.subscription.today_remaining_reads}/{user.subscription.subscription_plan.max_daily_reads}
             </div>
-            <p className="text-sm text-blue-600">You've used {user.subscription.subscription_plan.max_daily_reads - user.subscription.today_remaining_reads} reads today</p>
+            <p className="text-sm text-blue-600">You&rsquo;ve used {user.subscription.subscription_plan.max_daily_reads - user.subscription.today_remaining_reads} reads today</p>
           </CardContent>
         </Card>
 
@@ -42,7 +42,7 @@ export default async function DashboardPage() {
             <div className="text-3xl font-bold text-green-700 mb-2">
               {user.subscription.today_remaining_writes}/{user.subscription.subscription_plan.max_daily_writes}
             </div>
-            <p className="text-sm text-green-600">You've used {user.subscription.subscription_plan.max_daily_writes - user.subscription.today_remaining_writes} writes today</p>
+            <p className="text-sm text-green-600">You&rsquo;ve used {user.subscription.subscription_plan.max_daily_writes - user.subscription.today_remaining_writes} writes today</p>
           </CardContent>
         </Card>
 
@@ -170,7 +170,6 @@ export default async function DashboardPage() {
             </div>
           </CardContent>
         </Card>
-
       </div>
     </div>
   );
