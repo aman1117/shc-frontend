@@ -7,7 +7,7 @@ export default async function ShcFiles() {
 
   return (
     <div className="container mx-auto py-4">
-      <table className="min-w-full divide-y divide-gray-200">
+      <table className="min-w-full divide-y divide-gray-200 ">
         {/* Table Header */}
         <thead >
           <tr>
